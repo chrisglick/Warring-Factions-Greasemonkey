@@ -44,7 +44,10 @@ var tds = document.getElementById("perimTable").getElementsByTagName("tbody")[0]
 			shortEmpire += word.substring(0,1);
 		}
 		
-		tds[i].innerHTML = splitLines[2].replace('<font color="#CC0000">Scaldarians</font>', '<font color="#CC0000">&bull;</font> ') + splitLines[0] + " <span title='" + splitLines[1] + "'>[" + shortEmpire + "]</span>";
+		var faction = splitLines[2].replace('<font color="#3333CC">Archons</font>', '<font color="#3388DD">&bull;</font> ');
+		faction = faction.replace('<font color="#CC0000">Scaldarians</font>', '<font color="#CC0000">&bull;</font> ');
+		
+		tds[i].innerHTML = faction + splitLines[0] + " <span title='" + splitLines[1] + "'>[" + shortEmpire + "]</span>";
 	}
 	
 	// 2 = # ships
