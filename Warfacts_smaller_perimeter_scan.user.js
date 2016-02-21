@@ -1,13 +1,13 @@
-﻿// ==UserScript==
+// ==UserScript==
 // @name        Warfacts Smaller Perimeter Scan
 // @namespace   
 // @description MAkes the perimeter scan vertically compressed
 // @include     *.war-facts.com/extras/scan.php*
-// @version     1.0
+// @version     1.1
 // @grant       none
 // ==/UserScript==
 
-
+// 1.1 - changed symbols for stuff to make it purdier.
 
 
 /* Configuration Settings */
@@ -44,8 +44,9 @@ var tds = document.getElementById("perimTable").getElementsByTagName("tbody")[0]
 			shortEmpire += word.substring(0,1);
 		}
 		
-		var faction = splitLines[2].replace('<font color="#3333CC">Archons</font>', '<font color="#3388DD">&bull;</font> ');
-		faction = faction.replace('<font color="#CC0000">Scaldarians</font>', '<font color="#CC0000">&bull;</font> ');
+		var faction = splitLines[2].replace('<font color="#3333CC">Archons</font>', '<font color="#3388DD">►</font> ');
+		faction = faction.replace('<font color="#CC0000">Scaldarians</font>', '<font color="#CC0000">►</span></font> ');
+		faction = faction.replace('<font color="#aaaaaa">The Lost</font>', '<font color="#aaaaaa">►</font> ');
 		
 		tds[i].innerHTML = faction + splitLines[0] + " <span title='" + splitLines[1] + "'>[" + shortEmpire + "]</span>";
 	}
@@ -60,10 +61,10 @@ var tds = document.getElementById("perimTable").getElementsByTagName("tbody")[0]
 	// 5 = position
 	if (i % 6 == 5) {
 		pos = tds[i].innerHTML;
-		pos = pos.replace("Colony:<br>", "&prod; ");
+		pos = pos.replace("Colony:<br>", "Ѫ ");
 		pos = pos.replace("Orbit:<br>", "&#x2295; ");
 		pos = pos.replace("Open Space:<br>", "&Xi; ");
-		pos = pos.replace("System:<br>", "&there4; ");
+		pos = pos.replace("System:<br>", "☼&nbsp;");
 		pos = pos.replace("Alpha", "&Acirc;");
 		pos = pos.replace("Proto-arm", "Pa");
 		pos = pos.replace("-A", "-");
